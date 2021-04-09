@@ -1,7 +1,8 @@
 <template>
   <base-container title="Vuex">
     <the-counter></the-counter>
-    <button @click="addOne">Add 1</button>
+    <favorite-value></favorite-value>
+    <button @click="addTen">Add 10</button>
     <change-counter></change-counter>
   </base-container>
 </template>
@@ -10,16 +11,22 @@
 import BaseContainer from './components/BaseContainer.vue';
 import TheCounter from './components/TheCounter.vue';
 import ChangeCounter from './components/ChangeCounter.vue';
+import FavoriteValue from './components/FavoriteValue.vue';
 
 export default {
   components: {
     BaseContainer,
     TheCounter,
-    ChangeCounter
+    ChangeCounter,
+    FavoriteValue
   },
   methods: {
-    addOne() {
-      this.$store.commit('increment');
+    addTen() {
+      // this.$store.commit('increase', { value: 10}); // Alternative way
+      this.$store.commit({
+        type: 'increase',
+        value: 10
+      });
     }
   }
 };

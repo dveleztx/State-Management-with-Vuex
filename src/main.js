@@ -13,7 +13,26 @@ const store = createStore({
   // Similar to methods
   mutations: {
     increment(state) {
-      state.counter++;
+      state.counter += 2;
+    },
+    // Payload here can be anything, a number, string, or even an object
+    increase(state, payload) {
+      state.counter = state.counter + payload.value;
+    }
+  },
+  getters: {
+    finalCounter(state) {
+      return state.counter * 3;
+    },
+    normalizedCounter(_, getters) {
+      const finalCounter = getters.finalCounter;
+      if (finalCounter < 0) {
+        return 0;
+      }
+      if (finalCounter > 100) {
+        return 100;
+      }
+      return finalCounter;
     }
   }
 });
