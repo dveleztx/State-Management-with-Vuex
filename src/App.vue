@@ -22,8 +22,9 @@ export default {
   },
   methods: {
     addTen() {
-      // this.$store.commit('increase', { value: 10}); // Alternative way
-      this.$store.commit({
+      // this.$store.dispatch('increase', { value: 10}); // Alternative way
+      // Calling action
+      this.$store.dispatch({
         type: 'increase',
         value: 10
       });
