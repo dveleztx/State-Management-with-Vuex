@@ -28,6 +28,7 @@ const store = createStore({
     },
     increase(context, payload) {
       setTimeout(function() {
+        console.log(context);
         context.commit('increase', payload);
       }, 2000);
     }
