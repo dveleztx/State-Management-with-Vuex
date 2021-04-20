@@ -8,9 +8,10 @@ import { mapGetters } from 'vuex';
 
 export default {
   computed: {
-  //   counter() {
-  //     return this.$store.getters.normalizedCounter;
-    ...mapGetters({
+    // counter() {
+    //   return this.$store.getters.normalizedCounter;
+    // },
+    ...mapGetters('numbers', {
       norm: 'normalizedCounter'
     })
   }

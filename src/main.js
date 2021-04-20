@@ -4,6 +4,7 @@ import { createStore } from 'vuex';
 import App from './App.vue';
 
 const counterModule = {
+  namespaced: true,
   state() {
     return {
       counter: 0
@@ -15,6 +16,7 @@ const counterModule = {
     },
     // Payload here can be anything, a number, string, or even an object
     increase(state, payload) {
+      console.log(state);
       state.counter = state.counter + payload.value;
     }
   },
@@ -32,6 +34,10 @@ const counterModule = {
     }
   },
   getters: {
+    // This will not work because the state is local (in this case, inside the counter module)
+    testAuth(state) {
+      return state.isLoggedIn;
+    },
     finalCounter(state) {
       return state.counter * 3;
     },

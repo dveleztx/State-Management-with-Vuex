@@ -31,7 +31,7 @@ export default {
       // this.$store.dispatch('increase', { value: 10}); // Alternative way
       // Calling action
       this.$store.dispatch({
-        type: 'increase',
+        type: 'numbers/increase',
         value: 10
       });
     }
